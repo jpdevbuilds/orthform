@@ -1,26 +1,344 @@
 @import "tailwindcss";
 
+/* =========================================================
+   ORTHFORM — GLOBAL FOUNDATION
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* =======================================================
+     BRAND PALETTE
+     ======================================================= */
+
+  --color-primary: #2a5d9e;
+  --color-primary-100: #ebf2fa;
+  --color-primary-400: #5b8ee0;
+  --color-primary-500: #2a5d9e;
+  --color-primary-600: #1d4a80;
+  --color-primary-700: #13355e;
+
+  --color-secondary: #ffd166;
+
+  --color-success: #6a994e;
+  --color-success-100: #eaf2e6;
+  --color-success-900: #1b4332;
+
+  --color-warning: #e67e22;
+  --color-warning-100: #fdf0e4;
+  --color-warning-900: #6e3605;
+
+  --color-error: #d72638;
+  --color-error-100: #fce9eb;
+  --color-error-900: #5e0b13;
+  --color-error-950: #240507;
+
+
+  /* =======================================================
+     GLOBAL APPLICATION TOKENS — LIGHT
+     ======================================================= */
+
+  --app-bg: #f1efe7;
+  --app-surface: #ffffff;
+  --app-surface-raised: #eae7dc;
+
+  --app-ink: #2f2f2f;
+  --app-heading: #1a1a1a;
+  --app-muted: rgba(47, 47, 47, 0.55);
+  --app-subtle: rgba(47, 47, 47, 0.38);
+
+  --app-border: rgba(47, 47, 47, 0.1);
+  --app-border-strong: rgba(47, 47, 47, 0.16);
+
+  --app-hover: rgba(47, 47, 47, 0.05);
+  --app-active: #2f2f2f;
+  --app-active-ink: #ffffff;
+
+  --app-input: #ffffff;
+
+  --app-accent: var(--color-primary);
+  --app-accent-soft: var(--color-primary-100);
+
+  --app-secondary: var(--color-secondary);
+
+  --app-success: var(--color-success);
+  --app-success-soft: var(--color-success-100);
+
+  --app-warning: var(--color-warning);
+  --app-warning-soft: var(--color-warning-100);
+
+  --app-error: var(--color-error);
+  --app-error-soft: var(--color-error-100);
+
+
+  /* =======================================================
+     NEUTRALS
+     ======================================================= */
+
+  --color-background: #f1efe7;
+  --color-surface: #eae7dc;
+  --color-text: #2f2f2f;
+  --color-heading: #1a1a1a;
+
+  --color-neutral-300: #dcd8c9;
+  --color-neutral-400: #b8b3a4;
+
+
+  /* =======================================================
+     EDITOR — LIGHT
+     ======================================================= */
+
+  --editor-bg: var(--app-bg);
+
+  --editor-surface: var(--app-surface);
+
+  --editor-canvas: #ffffff;
+
+  --editor-ink: var(--app-ink);
+
+  --editor-heading: var(--app-heading);
+
+  --editor-muted: rgba(47, 47, 47, 0.48);
+
+  --editor-border: var(--app-border);
+
+  --editor-hover: var(--app-hover);
+
+  --editor-accent: var(--app-accent);
+
+  --editor-accent-soft: var(--app-accent-soft);
+
+  --editor-secondary: var(--app-secondary);
+
+  --editor-success: var(--app-success);
+
+  --editor-success-soft: var(--app-success-soft);
+
+  --editor-warning: var(--app-warning);
+
+  --editor-warning-soft: var(--app-warning-soft);
+
+  --editor-error: var(--app-error);
+
+  --editor-error-soft: var(--app-error-soft);
+
+
+  /* =======================================================
+     EDITOR — TYPOGRAPHY
+     ======================================================= */
+
+  --editor-title-size: clamp(
+    2rem,
+    5.2vw,
+    3.8rem
+  );
+
+  --editor-title-line-height: 0.94;
+
+  --editor-title-letter-spacing: -0.055em;
+
+  --editor-body-size: clamp(
+    0.95rem,
+    1.8vw,
+    1.15rem
+  );
+
+  --editor-body-line-height: 1.5;
+
+  --editor-body-letter-spacing: -0.01em;
+
+  --editor-label-size: 10px;
+
+  --editor-micro-size: 9px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* =========================================================
+   ORTHFORM — DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] {
+
+  /* =======================================================
+     GLOBAL APPLICATION TOKENS — DARK
+     ======================================================= */
+
+  --app-bg: #101112;
+  --app-surface: #17191b;
+  --app-surface-raised: #1d1f21;
+
+  --app-ink: #f4f2ec;
+  --app-heading: #ffffff;
+  --app-muted: rgba(244, 242, 236, 0.58);
+  --app-subtle: rgba(244, 242, 236, 0.38);
+
+  --app-border: rgba(255, 255, 255, 0.1);
+  --app-border-strong: rgba(255, 255, 255, 0.16);
+
+  --app-hover: rgba(255, 255, 255, 0.06);
+  --app-active: #f4f2ec;
+  --app-active-ink: #101112;
+
+  --app-input: #17191b;
+
+  --app-accent: var(--color-primary-400);
+  --app-accent-soft: rgba(91, 142, 224, 0.12);
+
+  --app-secondary: var(--color-secondary);
+
+  --app-success: #8fbd72;
+  --app-success-soft: rgba(106, 153, 78, 0.15);
+
+  --app-warning: #f0a15c;
+  --app-warning-soft: rgba(230, 126, 34, 0.15);
+
+  --app-error: #ed5a68;
+  --app-error-soft: rgba(215, 38, 56, 0.15);
+
+
+  /* =======================================================
+     EDITOR — DARK
+     ======================================================= */
+
+  --editor-bg: var(--app-bg);
+
+  --editor-surface: var(--app-surface);
+
+  --editor-canvas: var(--app-surface-raised);
+
+  --editor-ink: var(--app-ink);
+
+  --editor-heading: var(--app-heading);
+
+  --editor-muted: var(--app-muted);
+
+  --editor-border: var(--app-border);
+
+  --editor-hover: var(--app-hover);
+
+  --editor-accent: var(--app-accent);
+
+  --editor-accent-soft: var(--app-accent-soft);
+
+  --editor-secondary: var(--app-secondary);
+
+  --editor-success: var(--app-success);
+
+  --editor-success-soft: var(--app-success-soft);
+
+  --editor-warning: var(--app-warning);
+
+  --editor-warning-soft: var(--app-warning-soft);
+
+  --editor-error: var(--app-error);
+
+  --editor-error-soft: var(--app-error-soft);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* =========================================================
+   BOX MODEL
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DOCUMENT
+   ========================================================= */
+
+html {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  margin: 0;
+
+  background: var(--app-bg);
+  color: var(--app-ink);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+textarea {
+  margin: 0;
+}
+
+
+/* =========================================================
+   EDITOR TEXTAREA
+   ========================================================= */
+
+textarea {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  appearance: none;
+}
+
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   COLOR SCHEME
+   ========================================================= */
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+[data-theme="dark"] ::selection {
+  background: var(--color-primary-700);
+  color: #ffffff;
 }
