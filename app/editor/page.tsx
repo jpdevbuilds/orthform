@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
 import {
   useRouter,
   useSearchParams,
@@ -168,10 +174,10 @@ function getResponseErrorMessage(
 }
 
 // ==================================================
-// EDITOR PAGE
+// EDITOR PAGE CONTENT
 // ==================================================
 
-export default function EditorPage() {
+function EditorPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -1999,5 +2005,17 @@ export default function EditorPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+// ==================================================
+// EDITOR PAGE
+// ==================================================
+
+export default function EditorPage() {
+  return (
+    <Suspense fallback={null}>
+      <EditorPageContent />
+    </Suspense>
   );
 }
